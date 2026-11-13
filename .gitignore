@@ -6,3 +6,4 @@ sample_svcg_*.txt
 __pycache__/
 **/.pbi/cache.abf
 **/.pbi/localSettings.json
+/power-bi/Credit Portfolio.SemanticModel/definition/expressions.tmdl

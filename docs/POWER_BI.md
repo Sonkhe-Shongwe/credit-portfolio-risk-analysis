@@ -12,9 +12,11 @@ The exporter runs the two SQL scripts in one session, prints the audit results a
 
 ## Open the Power BI project
 
-1. Pull `main` in GitHub Desktop. From the repository root, make a local working copy of the complete `power-bi` folder under `local-data` so your Windows path and any cached data stay local. For a first-time setup in PowerShell, after generating the CSV, run `Copy-Item -Recurse .\power-bi .\local-data\power-bi`.
-2. Open `local-data\power-bi\Credit Portfolio.pbip` in a current version of Power BI Desktop. If the project format is unavailable, enable **Power BI Project (.pbip) save option** under **File > Options and settings > Options > Preview features** and restart Desktop. [Microsoft's Power BI Project guide](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview)
-3. Choose **Transform data > Edit parameters**. Set `CohortCsvPath` to the full Windows path of `local-data\month_12_cohorts.csv`, then apply the change and refresh. A blank path opens the report with empty visuals. The local copy contains both report and model folders and needs both to open.
+1. Pull `main` in GitHub Desktop and use **Show in Explorer** to open your existing Credit Portfolio checkout.
+2. Once `local-data\month_12_cohorts.csv` exists in that checkout, double-click **Open Credit Portfolio.cmd** in the repository root. The launcher finds the CSV relative to the checkout and opens `power-bi\Credit Portfolio.pbip` in place. It uses Python 3, which is also used by the exporter. Keep using the launcher if you move the checkout.
+3. In Power BI Desktop, choose **Home > Refresh** to load the latest CSV. If Windows has no `.pbip` file association, the launcher prepares the connection and displays the path to open through **File > Open** in Power BI Desktop. [Microsoft's Power BI Project guide](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview)
+
+The launcher writes the machine-specific connection to the model's Git-ignored `definition/expressions.tmdl`. Use the launcher once before opening the `.pbip` directly. The repository also ignores the Desktop cache and local settings.
 
 Power Query loads the fields below using the CSV's `en-US` number format. Counts use whole numbers and principal uses fixed decimal USD amounts. The report includes Year and Quarter dropdowns on both pages.
 

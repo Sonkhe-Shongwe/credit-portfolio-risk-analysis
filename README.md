@@ -4,6 +4,8 @@ A MySQL and Power BI case study on the early credit performance of US mortgages.
 
 **Status:** Both sample archives passed the MySQL audit. The Power BI input reconciles to SQL, and the repository contains a two-page Power BI project. Refresh and visual checks in Power BI Desktop are pending.
 
+On Windows, double-click **Open Credit Portfolio.cmd** from this checkout once the cohort CSV is available. The launcher finds the CSV and opens the report in place.
+
 - [Research plan](docs/RESEARCH_PLAN.md) for the business question, sources, definitions and milestone acceptance checks.
 - [Project continuation](docs/CONTINUATION.md) for the latest verified checkpoint, open decisions and exact next task.
 - [Power BI setup](docs/POWER_BI.md) for the export, report setup and acceptance checks.
