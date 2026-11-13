@@ -3,7 +3,7 @@
 **Baseline:** 13 November 2026  
 **Portfolio v1 completion:** **67%**  
 **Active phase:** **P4 Power BI report and Windows acceptance**, **40%**  
-**Next action:** Open the report from the existing GitHub checkout on Windows and record whether the two pages load. [Resume here](CONTINUATION.md#resume-here)
+**Next action:** Open **Cohort coverage** in the running Windows report and confirm it loads with data. [Resume here](CONTINUATION.md#resume-here)
 
 | Phase | Project weight | Phase completion | Points earned | What remains |
 |---|---:|---:|---:|---|
@@ -50,10 +50,10 @@ The weights are a planning baseline for this portfolio project. They measure ver
 |---|---:|---|---|
 | P4.1 | 25 | Build both report pages, model measures and slicers, with the report available directly from the checkout | Verified at source level. [Power BI project](../power-bi) · [Pull-and-open change](https://github.com/Sonkhe-Shongwe/credit-portfolio-risk-analysis/commit/dbe072cf81664bd92e2ccdecf81c2caee26c8263) |
 | P4.2 | 15 | Verify schemas, visual and model bindings, and measure definitions against the known data | Verified by static validation and local reconciliation. The report CLI could not fetch one schema, which passed the separate schema check. [Report checkpoint](CONTINUATION.md#current-checkpoint) |
-| P4.3 | 20 | Open the project from the existing Windows checkout, load the embedded data, and confirm both pages open | Pending. Record the commit, Power BI Desktop version and refresh outcome. |
-| P4.4 | 15 | Reconcile both displayed annual arrears rates, loan counts and coverage totals to the MySQL baseline | Pending. [Expected values](POWER_BI.md#expected-values-for-desktop-acceptance) |
+| P4.3 | 20 | Open the project from the existing Windows checkout, load the embedded data, and confirm both pages open | Pending with partial evidence. Windows opened the populated Arrears comparison page. Cohort coverage, commit, Desktop version and refresh outcome remain to be recorded. [First Windows evidence](CONTINUATION.md#first-windows-desktop-evidence) |
+| P4.4 | 15 | Reconcile both displayed annual arrears rates, loan counts and coverage totals to the MySQL baseline | Pending with partial evidence. The visible 2022 row and selected totals match the baseline. The 2023 row and coverage totals still need checking. [Expected values](POWER_BI.md#expected-values-for-desktop-acceptance) |
 | P4.5 | 15 | Exercise Year and Quarter on both pages, verify the 2023 Q4 result, and clear the filters to restore totals | Pending. [Expected values](POWER_BI.md#expected-values-for-desktop-acceptance) |
-| P4.6 | 10 | Inspect both pages at Fit to Page for readable labels, titles, legends and units, and retest any corrected issues | Pending. Capture screenshots of the two accepted views for P5. |
+| P4.6 | 10 | Inspect both pages at Fit to Page for readable labels, titles, legends and units, and retest any corrected issues | Pending. The first screenshot shows a vertical scrollbar in the annual matrix, with the 2023 row outside the visible area. Check both pages at Fit to Page. Capture the accepted views for P5. |
 
 **P4 reaches 100%** when P4.3 through P4.6 pass in Power BI Desktop and the results are recorded. The next session starts with P4.3 only.
 

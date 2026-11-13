@@ -16,9 +16,13 @@
 | Power BI report | Two-page Power BI Project at `power-bi/Credit Portfolio.pbip`. The semantic model embeds the eight aggregate rows and can refresh without a CSV path. Static report validation passed and Desktop refresh, rendering and filter checks are pending. [Power BI setup](POWER_BI.md) |
 | Windows launcher | `Open Credit Portfolio.cmd` opens the project from the existing checkout using a relative path. Power BI Desktop is needed for acceptance. |
 
+## First Windows Desktop evidence
+
+The owner screenshot shows **Arrears comparison** populated with both years in the quarter charts and Year and Quarter set to All. The visible 2022 row matches the baseline (0.4788% accounts in arrears, 0.5173% principal on arrears loans, 229 loans in arrears and 47,824 eligible). The visible total also matches the aggregate baseline (425 loans in arrears, 94,018 eligible and 100,000 sampled). **Cohort coverage** is visible as a tab and has yet to be opened in the supplied evidence. The annual matrix shows a vertical scrollbar and the 2023 row is outside the visible area at the captured view. Record this for the P4.6 layout check. The screenshot does not establish a separate refresh action, Desktop version or exact local commit.
+
 ## Resume here
 
-1. **P4.3:** Pull the current `main` branch and open `Open Credit Portfolio.cmd` from the existing GitHub checkout. If needed, refresh to load the embedded summary. Confirm both report tabs open, then record the commit, Desktop version and refresh outcome. This is the first Windows step.
+1. **P4.3:** The owner opened the project in Windows Power BI Desktop and supplied a screenshot of the populated **Arrears comparison** page. Next, click **Cohort coverage** and confirm it loads with data. Record the tested commit, Desktop version and any refresh action when available.
 2. **P4.4 to P4.6:** Reconcile the displayed values, exercise the slicers and inspect the layout. Use the [acceptance checks and expected values](POWER_BI.md#verify-the-report). Record results against their IDs in the [phase scorecard](PROJECT_STATUS.md#p4-power-bi-report-and-windows-acceptance).
 3. **P5:** After Windows acceptance, write the findings brief and prepare the GitHub portfolio entry. Use the published aggregate snapshot to verify the claims. See [Power BI setup](POWER_BI.md#reproduce-the-input-from-source) when reproducing or updating the snapshot.
 
@@ -36,3 +40,4 @@ The local quarter comparison showed that both rates were lower in each correspon
 | 2026-11-13 | Added the in-place Windows launcher and documented the automatic CSV connection. The existing GitHub checkout is the working folder. |
 | 2026-11-13 | Made report viewing work from a fresh checkout by embedding the verified quarterly research summary and simplifying the Windows launcher. |
 | 2026-11-13 | Established the P1 to P5 roadmap, weighted acceptance criteria and v1 blueprint. Baseline is 67% overall and 40% in P4. No new Desktop evidence was supplied. |
+| 2026-11-13 | Recorded the first owner screenshot of the populated report on Windows. P4.3 has partial evidence, and the annual matrix needs a visibility check under P4.6. |
