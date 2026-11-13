@@ -46,9 +46,21 @@ DIVIDE(SUM(Cohorts[voluntary_payoff_by_month_12]), SUM(Cohorts[sampled_loans]))
 
 ## Verify the report
 
-1. On **Arrears comparison**, check that the matrix shows both years, both arrears rates, counts and USD exposure. Confirm the two quarter charts each show Q1 to Q4 and the expected year series.
-2. On **Cohort coverage**, check that each matrix row adds back to the sampled count when eligible loans and all exclusion categories are summed. Confirm that voluntary payoff and eligibility appear for each quarter.
-3. Compare each year and quarter against the local output of `sql/02_month_12_arrears.sql`. Test both dropdowns, clear them, and check the totals. Totals must recalculate from the underlying counts and balances.
-4. Check both pages at Fit to Page and record the Desktop version, refresh outcome and any render or filter issues in [the continuation document](CONTINUATION.md). Use the [publication notes](RESEARCH_PLAN.md#evidence-and-scope) before sharing a data-bearing report.
+1. **P4.3:** Use the launcher from the existing Windows checkout. Refresh if the visuals are empty and check that **Arrears comparison** and **Cohort coverage** both load. Record the commit, Desktop version and refresh outcome.
+2. **P4.4:** Clear both filters. On **Arrears comparison**, reconcile the annual counts, rates and USD exposure. On **Cohort coverage**, reconcile the eligible loans and exclusions to the sample. Confirm the quarter charts show Q1 to Q4 and both year series.
+3. **P4.5:** Select **2023** and **Q4** on each page, compare the values to the row below, then clear both filters and confirm the annual values return. Totals use the underlying counts and balances.
+4. **P4.6:** Inspect both pages at Fit to Page. Record any clipped labels, illegible legends, ambiguous titles or missing units, and capture both accepted views for the portfolio handoff. Record results in [the phase scorecard](PROJECT_STATUS.md#p4-power-bi-report-and-windows-acceptance) and [continuation document](CONTINUATION.md). See the [publication notes](RESEARCH_PLAN.md#evidence-and-scope) before sharing screenshots.
 
 The export has been reconciled to MySQL, and the checked-in report definition has passed static validation. The refresh, visual rendering and filter checks require Power BI Desktop.
+
+### Expected values for Desktop acceptance
+
+These values are calculated from the checked-in eight-row summary. Compare percentages at the report's displayed precision.
+
+| Selection | Sampled loans | Eligible loans | Loans 90+ days in arrears | Account rate | Principal rate | Principal on arrears loans (USD) | Voluntary payoffs | Eligibility rate | Voluntary payoff rate |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 2022, all quarters | 50,000 | 47,824 | 229 | 0.4788% | 0.5173% | $71,906,651.11 | 1,998 | 95.6480% | 3.9960% |
+| 2023, all quarters | 50,000 | 46,194 | 196 | 0.4243% | 0.4167% | $57,522,660.23 | 3,642 | 92.3880% | 7.2840% |
+| 2023 Q4 | 12,500 | 10,759 | 63 | 0.5856% | 0.5626% | $17,477,672.96 | 1,698 | 86.0720% | 13.5840% |
+
+For the 2023 Q4 coverage check, the remaining 43 loans consist of 42 other exits and one real-estate-owned (REO) acquisition.

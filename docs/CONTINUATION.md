@@ -2,7 +2,7 @@
 
 **Last updated:** 2026-11-13  
 **Repository:** [Sonkhe-Shongwe/credit-portfolio-risk-analysis](https://github.com/Sonkhe-Shongwe/credit-portfolio-risk-analysis)  
-**Start here:** Read this file, then [the research plan](RESEARCH_PLAN.md) and the [README run instructions](../README.md#run-the-first-audit).
+**Start here:** Read [the phase scorecard](PROJECT_STATUS.md) for the current percentages and [the blueprint](PROJECT_BLUEPRINT.md) for the finish line. Use this file to resume the work.
 
 ## Current checkpoint
 
@@ -18,8 +18,9 @@
 
 ## Resume here
 
-1. Pull the current `main` branch and run `Open Credit Portfolio.cmd` from the existing GitHub checkout. Refresh if needed and run the [report acceptance checks](POWER_BI.md#verify-the-report) for both pages. Record the Desktop version, refresh and filter results, and any visual issues.
-2. Once the Desktop checks pass, write the findings brief. Use the published aggregate snapshot to verify the claims. See [Power BI setup](POWER_BI.md#reproduce-the-input-from-source) when reproducing or updating the snapshot.
+1. **P4.3:** Pull the current `main` branch and open `Open Credit Portfolio.cmd` from the existing GitHub checkout. If needed, refresh to load the embedded summary. Confirm both report tabs open, then record the commit, Desktop version and refresh outcome. This is the first Windows step.
+2. **P4.4 to P4.6:** Reconcile the displayed values, exercise the slicers and inspect the layout. Use the [acceptance checks and expected values](POWER_BI.md#verify-the-report). Record results against their IDs in the [phase scorecard](PROJECT_STATUS.md#p4-power-bi-report-and-windows-acceptance).
+3. **P5:** After Windows acceptance, write the findings brief and prepare the GitHub portfolio entry. Use the published aggregate snapshot to verify the claims. See [Power BI setup](POWER_BI.md#reproduce-the-input-from-source) when reproducing or updating the snapshot.
 
 The local quarter comparison showed that both rates were lower in each corresponding 2023 quarter, with a near tie for the account rate in Q1. Q4 had the highest rate on both measures within each year. Show that variation alongside eligibility and payoffs in the report and keep the interpretation descriptive. See the [research plan](RESEARCH_PLAN.md#evidence-and-scope) for the scope of the published summary.
 
@@ -34,3 +35,4 @@ The local quarter comparison showed that both rates were lower in each correspon
 | 2026-11-13 | Added the Power BI Project, with arrears comparison and cohort coverage pages, a parameterised CSV connection and measures. Static checks passed. Desktop acceptance is next. |
 | 2026-11-13 | Added the in-place Windows launcher and documented the automatic CSV connection. The existing GitHub checkout is the working folder. |
 | 2026-11-13 | Made report viewing work from a fresh checkout by embedding the verified quarterly research summary and simplifying the Windows launcher. |
+| 2026-11-13 | Established the P1 to P5 roadmap, weighted acceptance criteria and v1 blueprint. Baseline is 67% overall and 40% in P4. No new Desktop evidence was supplied. |

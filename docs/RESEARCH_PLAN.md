@@ -28,13 +28,8 @@ The audience is a credit portfolio monitoring team. Its decision is which origin
 
 Both arrears measures describe status at one reporting month. A loan that recovered before that month can be current at the snapshot. The principal numerator is the remaining balance on the delinquent loans. The project makes no estimate of the missed instalment amount or realised credit loss. Different origination quarters also reach month 12 in different calendar periods.
 
-## Milestones and acceptance
+## Delivery and acceptance
 
-| Milestone | Deliverable | Acceptance |
-|---|---|---|
-| 1. Source and data audit | Reproducible import and MySQL quality checks | Verify unique loan and loan-month keys. Reconcile extraction and load counts, and account for unmatched records. |
-| 2. First month-12 comparison | Cohort-level MySQL output with counts, balances and rates | Reconcile all eligibility groups to the sample and verify rates from underlying totals. Record which cohorts merit a closer look and what the exits change about the interpretation. |
-| 3. Power BI input and measures | One row per origination year and quarter, a data dictionary and report measures | Verify row count, keys, coverage totals and SQL-to-Power BI reconciliation. Check yearly totals under filters by dividing sums, with a blank rate for a zero denominator. |
-| 4. Power BI report and findings | One report with a cohort comparison and a coverage view, plus a short findings brief | Show the two arrears rates alongside denominators and exits. Review claims, units and source terms before publication. |
+See the [phase scorecard](PROJECT_STATUS.md) for acceptance criteria and verified progress, and the [portfolio v1 blueprint](PROJECT_BLUEPRINT.md) for the final deliverables.
 
 The report should open with the year comparison, then let the reader check which quarters contribute to the gap and how payoffs and other exclusions affect the comparison. Start with the month-12 snapshot. Extend to other ages or borrower segments if the first report leaves a specific question that the available data can answer.
