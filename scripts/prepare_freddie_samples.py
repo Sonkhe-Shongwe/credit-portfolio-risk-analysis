@@ -61,13 +61,14 @@ def performance(row, year):
     )
 
 
-def copy_rows(archive, filename, minimum_fields, convert, year, output):
-    members = [name for name in archive.namelist() if PurePosixPath(name).name == filename]
+def copy_rows(archive, filenames, minimum_fields, convert, year, output):
+    members = [name for name in archive.namelist() if PurePosixPath(name).name in filenames]
     if len(members) != 1:
-        raise ValueError(f"expected exactly one {filename}")
+        raise ValueError(f"expected exactly one archive member named {' or '.join(filenames)}")
 
+    filename = members[0]
     count = 0
-    with archive.open(members[0]) as raw:
+    with archive.open(filename) as raw:
         reader = csv.reader(io.TextIOWrapper(raw, encoding="utf-8-sig"), delimiter="|")
         for line, fields in enumerate(reader, start=1):
             try:
@@ -103,8 +104,9 @@ def main():
                 perf_path.open("w", newline="\n", encoding="utf-8") as perf_output:
             for year, path in sorted(sources.items()):
                 with ZipFile(path) as archive:
-                    loans = copy_rows(archive, f"sample_orig_{year}.txt", 20, origination, year, orig_output)
-                    months = copy_rows(archive, f"sample_svcg_{year}.txt", 10, performance, year, perf_output)
+                    loans = copy_rows(archive, (f"sample_orig_{year}.txt",), 20, origination, year, orig_output)
+                    performance_files = (f"sample_perf_{year}.txt", f"sample_svcg_{year}.txt")
+                    months = copy_rows(archive, performance_files, 10, performance, year, perf_output)
                 print(f"{year}: {loans:,} origination rows, {months:,} performance rows")
         orig_path.replace(output_dir / orig_path.name)
         perf_path.replace(output_dir / perf_path.name)

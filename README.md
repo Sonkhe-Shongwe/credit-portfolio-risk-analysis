@@ -2,12 +2,13 @@
 
 A MySQL case study on the early credit performance of US mortgages. The first milestone asks which origination cohorts had more loans at least 90 days in arrears in their 12th scheduled payment month, and what share of outstanding principal those loans represented.
 
-**Status:** Ingestion and the first calculation were tested on MySQL 8.4 using synthetic records, including duplicate loan-month rejection and a hand check of both arrears rates. The official loan files still need to be downloaded and audited before we can report findings. Power BI follows the data audit.
+**Status:** The 2022 and 2023 sample archives have been processed locally through the data audit and first calculation on MySQL 8.4. The next step is the Power BI report.
 
 ## Run the first audit
 
 1. Open the [Freddie Mac dataset page](https://www.freddiemac.com/research/datasets/sf-loanlevel-dataset), follow **Access Historical Data**, and sign in to Clarity. In the sample downloads, select `sample_2022.zip` and `sample_2023.zip`. These are the initial comparison years. The [release notes](https://www.freddiemac.com/fmac-resources/research/pdf/release_notes.pdf) document the reporting cutoff.
 2. Put both archives in `local-data/` at the repository root. Keep the source and row-level outputs local. Freddie Mac's [dataset terms](https://capitalmarkets.freddiemac.com/crt/docs/pdfs/fre_terms_conditions_sflld.pdf) govern use and publication.
+   The importer accepts either `sample_perf_YYYY.txt` or `sample_svcg_YYYY.txt` for the monthly performance file inside each ZIP.
 3. Run the commands below from the repository root. Python 3 uses only the standard library to extract and normalise the required fields. MySQL 8 performs the audit and calculations. Use a trusted local MySQL server with `local_infile` enabled. Create an empty schema named `credit_portfolio`, and replace the username as needed.
 
 ```sh

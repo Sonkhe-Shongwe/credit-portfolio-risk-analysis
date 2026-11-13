@@ -1,5 +1,6 @@
 /local-data/
 sample_*.zip
 sample_orig_*.txt
+sample_perf_*.txt
 sample_svcg_*.txt
 __pycache__/
