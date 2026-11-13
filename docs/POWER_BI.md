@@ -46,6 +46,8 @@ DIVIDE(SUM(Cohorts[voluntary_payoff_by_month_12]), SUM(Cohorts[sampled_loans]))
 
 ## Report design
 
+See the [dashboard design specification](DASHBOARD_DESIGN.md) for the research references and proposed visual refinements.
+
 The report serves a portfolio monitoring team. Both pages follow the same reading order: the current selection in four KPI cards, the full-sample comparison, quarterly charts, then the annual reconciliation table. The navy header identifies the subject and keeps the filters in the same place. Teal marks the primary KPI. Charts use navy for 2022 and teal for 2023, with labelled legends. Both arrears charts use a zero-based 0% to 0.8% axis so the account and principal rates can be compared on the same scale. The coverage charts have zero-based scales suited to their own measures.
 
 The Year and Quarter slicers update the cards, charts and matrix on their page. The callout explicitly describes the **full-sample baseline** and remains fixed when filters change. Hover over a quarter bar to inspect the related counts or principal totals. The annual matrix shows exact USD amounts and four-decimal rates for reconciliation. The exposure card uses USD millions and the two coverage rate cards use two decimals for readability.

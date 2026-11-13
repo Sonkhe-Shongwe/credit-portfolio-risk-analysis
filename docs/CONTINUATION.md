@@ -26,6 +26,8 @@ The owner screenshot shows **Arrears comparison** populated with both years in t
 2. **P4.4 to P4.6:** Reconcile the displayed values, exercise the slicers and inspect the layout. Use the [acceptance checks and expected values](POWER_BI.md#verify-the-report). Record results against their IDs in the [phase scorecard](PROJECT_STATUS.md#p4-power-bi-report-and-windows-acceptance).
 3. **P5:** After Windows acceptance, write the findings brief and prepare the GitHub portfolio entry. Use the published aggregate snapshot to verify the claims. See [Power BI setup](POWER_BI.md#reproduce-the-input-from-source) when reproducing or updating the snapshot.
 
+Use the [dashboard design specification](DASHBOARD_DESIGN.md) when refining the report layout. It records reference dashboards, proposed component and filter behavior, and the Desktop checks for the proposed design.
+
 The local quarter comparison showed that both rates were lower in each corresponding 2023 quarter, with a near tie for the account rate in Q1. Q4 had the highest rate on both measures within each year. Show that variation alongside eligibility and payoffs in the report and keep the interpretation descriptive. See the [research plan](RESEARCH_PLAN.md#evidence-and-scope) for the scope of the published summary.
 
 ## Checkpoint history

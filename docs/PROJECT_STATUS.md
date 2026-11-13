@@ -5,6 +5,8 @@
 **Active phase:** **P4 Power BI report and Windows acceptance**, **40%**  
 **Next action:** Pull the redesigned report, reopen it in Power BI Desktop and check that both pages display. [Resume here](CONTINUATION.md#resume-here)
 
+The [dashboard design specification](DASHBOARD_DESIGN.md) documents proposed refinements for P4.6 and the interaction checks they would add to P4.5.
+
 | Phase | Project weight | Phase completion | Points earned | What remains |
 |---|---:|---:|---:|---|
 | P1. Business question and research design | 10% | **100%** | 10.0 | Baseline verified |
