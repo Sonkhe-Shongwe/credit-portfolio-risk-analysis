@@ -4,3 +4,5 @@ sample_orig_*.txt
 sample_perf_*.txt
 sample_svcg_*.txt
 __pycache__/
+**/.pbi/cache.abf
+**/.pbi/localSettings.json

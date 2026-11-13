@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Credit Portfolio"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "378cd00e-30f5-5078-bd90-98a681c4e45c"
+  }
+}

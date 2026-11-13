@@ -1,0 +1,12 @@
+{
+  "name": "CreditPortfolio.json",
+  "dataColors": [
+    "#285B9B",
+    "#087A72",
+    "#9A5116",
+    "#6B7B8C"
+  ],
+  "background": "#EDF3F8",
+  "foreground": "#142A40",
+  "tableAccent": "#087A72"
+}

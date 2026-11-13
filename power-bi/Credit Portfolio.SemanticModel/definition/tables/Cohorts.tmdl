@@ -1,0 +1,148 @@
+table Cohorts
+
+	measure 'Sampled loans' = SUM(Cohorts[sampled_loans])
+		formatString: #,##0
+
+	measure 'Eligible loans' = SUM(Cohorts[eligible_loans])
+		formatString: #,##0
+
+	measure '90+ day loans' = SUM(Cohorts[loans_in_90_plus_arrears])
+		formatString: #,##0
+
+	measure 'Voluntary payoffs' = SUM(Cohorts[voluntary_payoff_by_month_12])
+		formatString: #,##0
+
+	measure 'Other exits' = SUM(Cohorts[other_exits_by_month_12])
+		formatString: #,##0
+
+	measure 'Unobserved' = SUM(Cohorts[month_12_unobserved])
+		formatString: #,##0
+
+	measure 'REO' = SUM(Cohorts[real_estate_owned])
+		formatString: #,##0
+
+	measure 'Missing or zero balance' = SUM(Cohorts[no_positive_principal])
+		formatString: #,##0
+
+	measure 'Unknown status' = SUM(Cohorts[unknown_delinquency])
+		formatString: #,##0
+
+	measure 'Eligible principal (USD)' = SUM(Cohorts[eligible_principal])
+		formatString: "$"#,##0.00
+
+	measure 'Principal on arrears loans (USD)' = SUM(Cohorts[principal_in_90_plus_arrears])
+		formatString: "$"#,##0.00
+
+	measure 'Accounts in arrears %' = DIVIDE(SUM(Cohorts[loans_in_90_plus_arrears]), SUM(Cohorts[eligible_loans]))
+		formatString: 0.0000%
+
+	measure 'Principal on arrears loans %' = DIVIDE(SUM(Cohorts[principal_in_90_plus_arrears]), SUM(Cohorts[eligible_principal]))
+		formatString: 0.0000%
+
+	measure 'Month-12 eligibility %' = DIVIDE(SUM(Cohorts[eligible_loans]), SUM(Cohorts[sampled_loans]))
+		formatString: 0.0000%
+
+	measure 'Voluntary payoff %' = DIVIDE(SUM(Cohorts[voluntary_payoff_by_month_12]), SUM(Cohorts[sampled_loans]))
+		formatString: 0.0000%
+
+	column origination_year
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: origination_year
+		isHidden
+
+	column origination_quarter
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: origination_quarter
+		isHidden
+
+	column sampled_loans
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: sampled_loans
+		isHidden
+
+	column voluntary_payoff_by_month_12
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: voluntary_payoff_by_month_12
+		isHidden
+
+	column other_exits_by_month_12
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: other_exits_by_month_12
+		isHidden
+
+	column month_12_unobserved
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: month_12_unobserved
+		isHidden
+
+	column real_estate_owned
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: real_estate_owned
+		isHidden
+
+	column no_positive_principal
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: no_positive_principal
+		isHidden
+
+	column unknown_delinquency
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: unknown_delinquency
+		isHidden
+
+	column eligible_loans
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: eligible_loans
+		isHidden
+
+	column loans_in_90_plus_arrears
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: loans_in_90_plus_arrears
+		isHidden
+
+	column eligible_principal
+		dataType: decimal
+		summarizeBy: none
+		sourceColumn: eligible_principal
+		isHidden
+
+	column principal_in_90_plus_arrears
+		dataType: decimal
+		summarizeBy: none
+		sourceColumn: principal_in_90_plus_arrears
+		isHidden
+
+	column Year
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Year
+
+	column Quarter
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Quarter
+
+	partition Cohorts = m
+		mode: import
+		source =
+			let
+				Expected = {"origination_year", "origination_quarter", "sampled_loans", "voluntary_payoff_by_month_12", "other_exits_by_month_12", "month_12_unobserved", "real_estate_owned", "no_positive_principal", "unknown_delinquency", "eligible_loans", "loans_in_90_plus_arrears", "eligible_principal", "principal_in_90_plus_arrears"},
+				Source = if Text.Trim(CohortCsvPath) = "" then #table(Expected, {}) else
+					Table.PromoteHeaders(Csv.Document(File.Contents(CohortCsvPath), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]), [PromoteAllScalars=true]),
+				Selected = Table.SelectColumns(Source, Expected),
+				Typed = Table.TransformColumnTypes(Selected, {{"origination_year", Int64.Type}, {"origination_quarter", Int64.Type}, {"sampled_loans", Int64.Type}, {"voluntary_payoff_by_month_12", Int64.Type}, {"other_exits_by_month_12", Int64.Type}, {"month_12_unobserved", Int64.Type}, {"real_estate_owned", Int64.Type}, {"no_positive_principal", Int64.Type}, {"unknown_delinquency", Int64.Type}, {"eligible_loans", Int64.Type}, {"loans_in_90_plus_arrears", Int64.Type}, {"eligible_principal", Currency.Type}, {"principal_in_90_plus_arrears", Currency.Type}}, "en-US"),
+				WithYear = Table.AddColumn(Typed, "Year", each Number.ToText([origination_year], "0", "en-US"), type text),
+				WithQuarter = Table.AddColumn(WithYear, "Quarter", each "Q" & Number.ToText([origination_quarter], "0", "en-US"), type text)
+			in
+				WithQuarter
