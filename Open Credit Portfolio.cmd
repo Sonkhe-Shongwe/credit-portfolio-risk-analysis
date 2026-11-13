@@ -1,15 +1,15 @@
 @echo off
 setlocal
-where py.exe >nul 2>&1
-if errorlevel 1 goto use_python
-py -3 "%~dp0scripts\open_power_bi.py"
-goto finish
-
-:use_python
-python "%~dp0scripts\open_power_bi.py"
-
-:finish
+set "report=%~dp0power-bi\Credit Portfolio.pbip"
+if not exist "%report%" (
+    echo The Power BI project is missing. Pull the latest files in GitHub Desktop.
+    pause
+    exit /b 1
+)
+start "" "%report%"
 if errorlevel 1 (
+    echo Open this project from File ^> Open in Power BI Desktop:
+    echo "%report%"
     pause
     exit /b 1
 )

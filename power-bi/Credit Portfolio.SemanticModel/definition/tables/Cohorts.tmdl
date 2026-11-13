@@ -138,8 +138,16 @@ table Cohorts
 		source =
 			let
 				Expected = {"origination_year", "origination_quarter", "sampled_loans", "voluntary_payoff_by_month_12", "other_exits_by_month_12", "month_12_unobserved", "real_estate_owned", "no_positive_principal", "unknown_delinquency", "eligible_loans", "loans_in_90_plus_arrears", "eligible_principal", "principal_in_90_plus_arrears"},
-				Source = if Text.Trim(CohortCsvPath) = "" then #table(Expected, {}) else
-					Table.PromoteHeaders(Csv.Document(File.Contents(CohortCsvPath), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]), [PromoteAllScalars=true]),
+				Source = #table(Expected, {
+					{"2022", "1", "12500", "389", "32", "0", "0", "0", "0", "12079", "50", "3383796540.97", "16210621.82"},
+					{"2022", "2", "12500", "453", "50", "0", "0", "0", "0", "11997", "51", "3529318057.95", "14352882.31"},
+					{"2022", "3", "12500", "466", "53", "0", "0", "1", "0", "11980", "57", "3566860878.63", "18992235.63"},
+					{"2022", "4", "12500", "690", "42", "0", "0", "0", "0", "11768", "71", "3419530130.36", "22350911.35"},
+					{"2023", "1", "12500", "586", "57", "0", "0", "0", "0", "11857", "49", "3519416631.02", "13220277.40"},
+					{"2023", "2", "12500", "554", "35", "0", "1", "0", "0", "11910", "37", "3723796324.27", "11961134.30"},
+					{"2023", "3", "12500", "804", "28", "0", "0", "0", "0", "11668", "47", "3455442045.45", "14863575.57"},
+					{"2023", "4", "12500", "1698", "42", "0", "1", "0", "0", "10759", "63", "3106324023.22", "17477672.96"}
+				}),
 				Selected = Table.SelectColumns(Source, Expected),
 				Typed = Table.TransformColumnTypes(Selected, {{"origination_year", Int64.Type}, {"origination_quarter", Int64.Type}, {"sampled_loans", Int64.Type}, {"voluntary_payoff_by_month_12", Int64.Type}, {"other_exits_by_month_12", Int64.Type}, {"month_12_unobserved", Int64.Type}, {"real_estate_owned", Int64.Type}, {"no_positive_principal", Int64.Type}, {"unknown_delinquency", Int64.Type}, {"eligible_loans", Int64.Type}, {"loans_in_90_plus_arrears", Int64.Type}, {"eligible_principal", Currency.Type}, {"principal_in_90_plus_arrears", Currency.Type}}, "en-US"),
 				WithYear = Table.AddColumn(Typed, "Year", each Number.ToText([origination_year], "0", "en-US"), type text),

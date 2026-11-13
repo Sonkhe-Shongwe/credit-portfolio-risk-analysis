@@ -4,13 +4,15 @@ A MySQL and Power BI case study on the early credit performance of US mortgages.
 
 **Status:** Both sample archives passed the MySQL audit. The Power BI input reconciles to SQL, and the repository contains a two-page Power BI project. Refresh and visual checks in Power BI Desktop are pending.
 
-On Windows, double-click **Open Credit Portfolio.cmd** from this checkout once the cohort CSV is available. The launcher finds the CSV and opens the report in place.
+On Windows, pull the latest files and double-click **Open Credit Portfolio.cmd** from this checkout. The project contains the eight verified quarterly summary rows, so viewing the report only requires Power BI Desktop. [Open the report](docs/POWER_BI.md#open-the-power-bi-project)
 
 - [Research plan](docs/RESEARCH_PLAN.md) for the business question, sources, definitions and milestone acceptance checks.
 - [Project continuation](docs/CONTINUATION.md) for the latest verified checkpoint, open decisions and exact next task.
 - [Power BI setup](docs/POWER_BI.md) for the export, report setup and acceptance checks.
 
 ## Run the first audit
+
+These steps reproduce the analysis from the source files.
 
 1. Open the [Freddie Mac dataset page](https://www.freddiemac.com/research/datasets/sf-loanlevel-dataset), follow **Access Historical Data**, and sign in to Clarity. In the sample downloads, select `sample_2022.zip` and `sample_2023.zip`. These are the initial comparison years. The [release notes](https://www.freddiemac.com/fmac-resources/research/pdf/release_notes.pdf) document the reporting cutoff.
 2. Put both archives in `local-data/` at the repository root. Keep the source and row-level outputs local. Freddie Mac's [dataset terms](https://capitalmarkets.freddiemac.com/crt/docs/pdfs/fre_terms_conditions_sflld.pdf) govern use and publication.

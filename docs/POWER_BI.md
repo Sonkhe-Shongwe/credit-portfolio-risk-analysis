@@ -1,6 +1,14 @@
 # Power BI setup
 
-## Generate the input
+## Open the Power BI project
+
+1. Pull `main` in GitHub Desktop and use **Show in Explorer** to open your existing Credit Portfolio checkout.
+2. Double-click **Open Credit Portfolio.cmd**. It opens `power-bi\Credit Portfolio.pbip` in place. You can also open that `.pbip` through **File > Open** in Power BI Desktop. [Microsoft's Power BI Project guide](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview)
+3. If the visuals are empty on first open, select **Home > Refresh** to load the summary already embedded in the semantic model.
+
+The report works from any checkout location. The eight aggregate rows are also available as [`power-bi/month_12_cohorts.csv`](../power-bi/month_12_cohorts.csv) for inspection. The model embeds the same rows so Power BI can load them without a machine-specific connection.
+
+## Reproduce the input from source
 
 Prepare `local-data/origination.tsv` and `local-data/performance.tsv` using the [README](../README.md#run-the-first-audit). With the MySQL client available, run the following command from the repository root. The `--` separates exporter arguments from MySQL client arguments.
 
@@ -8,17 +16,9 @@ Prepare `local-data/origination.tsv` and `local-data/performance.tsv` using the 
 python scripts/export_power_bi.py -- --user=YOUR_USERNAME -p credit_portfolio
 ```
 
-The exporter runs the two SQL scripts in one session, prints the audit results and writes `local-data/month_12_cohorts.csv`. Each row is one origination year and quarter. The file includes the base counts and balances used in the report. The directory is ignored by Git.
+The exporter runs the two SQL scripts in one session and writes `local-data/month_12_cohorts.csv`. When updating the report to a new verified snapshot, update both the checked-in CSV and the `Source = #table(...)` rows in the model's `Cohorts.tmdl`, and reconcile the two before committing. Each row is one origination year and quarter.
 
-## Open the Power BI project
-
-1. Pull `main` in GitHub Desktop and use **Show in Explorer** to open your existing Credit Portfolio checkout.
-2. Once `local-data\month_12_cohorts.csv` exists in that checkout, double-click **Open Credit Portfolio.cmd** in the repository root. The launcher finds the CSV relative to the checkout and opens `power-bi\Credit Portfolio.pbip` in place. It uses Python 3, which is also used by the exporter. Keep using the launcher if you move the checkout.
-3. In Power BI Desktop, choose **Home > Refresh** to load the latest CSV. If Windows has no `.pbip` file association, the launcher prepares the connection and displays the path to open through **File > Open** in Power BI Desktop. [Microsoft's Power BI Project guide](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-overview)
-
-The launcher writes the machine-specific connection to the model's Git-ignored `definition/expressions.tmdl`. Use the launcher once before opening the `.pbip` directly. The repository also ignores the Desktop cache and local settings.
-
-Power Query loads the fields below using the CSV's `en-US` number format. Counts use whole numbers and principal uses fixed decimal USD amounts. The report includes Year and Quarter dropdowns on both pages.
+Power Query loads the fields below using `en-US` number formats. Counts use whole numbers and principal uses fixed decimal USD amounts. The report includes Year and Quarter dropdowns on both pages.
 
 | Columns | Meaning |
 |---|---|
