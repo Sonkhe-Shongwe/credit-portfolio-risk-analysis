@@ -44,12 +44,20 @@ Voluntary payoff % =
 DIVIDE(SUM(Cohorts[voluntary_payoff_by_month_12]), SUM(Cohorts[sampled_loans]))
 ```
 
+## Report design
+
+The report serves a portfolio monitoring team. Both pages follow the same reading order: the current selection in four KPI cards, the full-sample comparison, quarterly charts, then the annual reconciliation table. The navy header identifies the subject and keeps the filters in the same place. Teal marks the primary KPI. Charts use navy for 2022 and teal for 2023, with labelled legends. Both arrears charts use a zero-based 0% to 0.8% axis so the account and principal rates can be compared on the same scale. The coverage charts have zero-based scales suited to their own measures.
+
+The Year and Quarter slicers update the cards, charts and matrix on their page. The callout explicitly describes the **full-sample baseline** and remains fixed when filters change. Hover over a quarter bar to inspect the related counts or principal totals. The annual matrix shows exact USD amounts and four-decimal rates for reconciliation. The exposure card uses USD millions and the two coverage rate cards use two decimals for readability.
+
+[Microsoft's dashboard design guidance](https://learn.microsoft.com/en-us/power-bi/create-reports/service-dashboards-design-tips) informed the KPI placement and consistent scales. The [IBCS framework](https://www.ibcs.com/IBCS/) informed the message and consistent year encoding. The [Nova Bank risk report](https://zoomcharts.com/en/microsoft-power-bi-custom-visuals/dashboard-and-report-examples/view/credit-risk-analysis-dashboard) and [Omar Rezk's loan portfolio case study](https://omarrez2.github.io/projects/bank-loan-analysis) provided visual references for the header, KPI hierarchy and progression from headline metrics to detail. The report uses native Power BI visuals, with alt text on data and filter visuals following [Microsoft's accessibility guidance](https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-accessibility-creating-reports).
+
 ## Verify the report
 
 1. **P4.3:** Use the launcher from the existing Windows checkout. Refresh if the visuals are empty and check that **Arrears comparison** and **Cohort coverage** both load. Record the commit, Desktop version and refresh outcome.
-2. **P4.4:** Clear both filters. On **Arrears comparison**, reconcile the annual counts, rates and USD exposure. On **Cohort coverage**, reconcile the eligible loans and exclusions to the sample. Confirm the quarter charts show Q1 to Q4 and both year series.
-3. **P4.5:** Select **2023** and **Q4** on each page, compare the values to the row below, then clear both filters and confirm the annual values return. Totals use the underlying counts and balances.
-4. **P4.6:** Inspect both pages at Fit to Page. Record any clipped labels, illegible legends, ambiguous titles or missing units, and capture both accepted views for the portfolio handoff. Record results in [the phase scorecard](PROJECT_STATUS.md#p4-power-bi-report-and-windows-acceptance) and [continuation document](CONTINUATION.md). See the [publication notes](RESEARCH_PLAN.md#evidence-and-scope) before sharing screenshots.
+2. **P4.4:** Clear both filters. On **Arrears comparison**, reconcile the annual counts, rates and USD exposure. On **Cohort coverage**, reconcile the eligible loans and exclusions to the sample. Confirm the quarter charts show Q1 to Q4 and both year series. The cards should show the combined selection.
+3. **P4.5:** Select **2023** and **Q4** on each page, compare the values to the row below, then clear both filters and confirm the annual values return. Verify that the cards respond to the filters and the labelled full-sample callout stays fixed. Totals use the underlying counts and balances.
+4. **P4.6:** Inspect both pages at Fit to Page. Confirm that both annual rows and the total fit without scrolling. Check the KPI labels, legends, filter controls and units, and capture both accepted views for the portfolio handoff. Record results in [the phase scorecard](PROJECT_STATUS.md#p4-power-bi-report-and-windows-acceptance) and [continuation document](CONTINUATION.md). See the [publication notes](RESEARCH_PLAN.md#evidence-and-scope) before sharing screenshots.
 
 The export has been reconciled to MySQL, and the checked-in report definition has passed static validation. The refresh, visual rendering and filter checks require Power BI Desktop.
 

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "1a0715f1c9b18d20aad0",
   "position": {
-    "x": 26,
-    "y": 683,
-    "width": 1226,
-    "height": 25,
-    "z": 8000,
-    "tabOrder": 8000
+    "x": 28,
+    "y": 734,
+    "width": 1224,
+    "height": 27,
+    "z": 14000,
+    "tabOrder": 14000
   },
   "visual": {
     "visualType": "textbox",
@@ -17,17 +17,17 @@
           "properties": {
             "paragraphs": [
               {
-                "horizontalTextAlignment": "left",
                 "textRuns": [
                   {
-                    "value": "The principal measure represents the full outstanding balance on 90+ day arrears loans.",
+                    "value": "Source  Freddie Mac U.S. mortgage samples   |   Rates use eligible loans or principal. Exposure is the full balance on 90+ day loans.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "14px",
-                      "color": "#4E657B"
+                      "color": "#42566E"
                     }
                   }
-                ]
+                ],
+                "horizontalTextAlignment": "left"
               }
             ]
           }
@@ -35,6 +35,68 @@
       ]
     },
     "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F3F6FA'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#DCE5EF'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
       "padding": [
         {
           "properties": {
@@ -69,7 +131,7 @@
           }
         }
       ],
-      "background": [
+      "visualHeader": [
         {
           "properties": {
             "show": {

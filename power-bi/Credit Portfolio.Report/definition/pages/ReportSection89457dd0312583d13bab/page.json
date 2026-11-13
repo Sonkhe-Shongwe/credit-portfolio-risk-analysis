@@ -3,7 +3,7 @@
   "name": "ReportSection89457dd0312583d13bab",
   "displayName": "Arrears comparison",
   "displayOption": "FitToPage",
-  "height": 720,
+  "height": 768,
   "width": 1280,
   "objects": {
     "background": [
@@ -14,7 +14,7 @@
               "color": {
                 "expr": {
                   "Literal": {
-                    "Value": "'#EDF3F8'"
+                    "Value": "'#F3F6FA'"
                   }
                 }
               }

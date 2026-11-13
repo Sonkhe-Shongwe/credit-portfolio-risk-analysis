@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "7a44501ec9919ded67ac",
   "position": {
-    "x": 26,
-    "y": 657,
-    "width": 1226,
-    "height": 25,
-    "z": 7000,
-    "tabOrder": 7000
+    "x": 28,
+    "y": 251,
+    "width": 1224,
+    "height": 44,
+    "z": 10000,
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "textbox",
@@ -17,17 +17,26 @@
           "properties": {
             "paragraphs": [
               {
-                "horizontalTextAlignment": "left",
                 "textRuns": [
                   {
-                    "value": "Month 12 is the first scheduled payment month plus 11 months. Eligibility requires an observed status and positive principal.",
+                    "value": "FULL-SAMPLE BASELINE  ",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI Semibold",
+                      "fontSize": "14px",
+                      "color": "#005E54",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": "Voluntary payoffs rose from 4.00% in 2022 to 7.28% in 2023, while eligibility fell to 92.39%.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "14px",
-                      "color": "#4E657B"
+                      "fontSize": "16px",
+                      "color": "#10243A"
                     }
                   }
-                ]
+                ],
+                "horizontalTextAlignment": "left"
               }
             ]
           }
@@ -35,31 +44,28 @@
       ]
     },
     "visualContainerObjects": {
-      "padding": [
+      "background": [
         {
           "properties": {
-            "top": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
+                  "Value": "true"
                 }
               }
             },
-            "bottom": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E4F5F1'"
+                    }
+                  }
                 }
               }
             },
-            "left": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "right": {
+            "transparency": {
               "expr": {
                 "Literal": {
                   "Value": "0D"
@@ -69,7 +75,72 @@
           }
         }
       ],
-      "background": [
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#B3DBD0'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
         {
           "properties": {
             "show": {

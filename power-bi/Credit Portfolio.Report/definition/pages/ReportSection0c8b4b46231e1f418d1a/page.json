@@ -3,7 +3,7 @@
   "name": "ReportSection0c8b4b46231e1f418d1a",
   "displayName": "Cohort coverage",
   "displayOption": "FitToPage",
-  "height": 720,
+  "height": 768,
   "width": 1280,
   "objects": {
     "background": [
@@ -14,7 +14,7 @@
               "color": {
                 "expr": {
                   "Literal": {
-                    "Value": "'#EDF3F8'"
+                    "Value": "'#F3F6FA'"
                   }
                 }
               }

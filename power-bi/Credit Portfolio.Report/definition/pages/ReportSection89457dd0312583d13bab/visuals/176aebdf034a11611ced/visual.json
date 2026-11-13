@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "176aebdf034a11611ced",
   "position": {
-    "x": 26,
-    "y": 73,
-    "width": 855,
-    "height": 27,
-    "z": 1000,
-    "tabOrder": 1000
+    "x": 28,
+    "y": 36,
+    "width": 850,
+    "height": 52,
+    "z": 2000,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "textbox",
@@ -17,17 +17,18 @@
           "properties": {
             "paragraphs": [
               {
-                "horizontalTextAlignment": "left",
                 "textRuns": [
                   {
-                    "value": "Compare account rates and outstanding principal for loans at least 90 days in arrears.",
+                    "value": "Mortgage arrears at month 12",
                     "textStyle": {
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "17px",
-                      "color": "#4E657B"
+                      "fontFamily": "Segoe UI Semibold",
+                      "fontSize": "32px",
+                      "color": "#FFFFFF",
+                      "fontWeight": "bold"
                     }
                   }
-                ]
+                ],
+                "horizontalTextAlignment": "left"
               }
             ]
           }
@@ -35,6 +36,68 @@
       ]
     },
     "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F3F6FA'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#DCE5EF'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
       "padding": [
         {
           "properties": {
@@ -69,7 +132,7 @@
           }
         }
       ],
-      "background": [
+      "visualHeader": [
         {
           "properties": {
             "show": {

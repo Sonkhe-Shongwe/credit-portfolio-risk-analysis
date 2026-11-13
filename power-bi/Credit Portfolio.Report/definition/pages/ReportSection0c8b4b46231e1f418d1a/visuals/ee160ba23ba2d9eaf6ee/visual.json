@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "ee160ba23ba2d9eaf6ee",
   "position": {
-    "x": 26,
-    "y": 16,
-    "width": 855,
-    "height": 56,
-    "z": 0,
-    "tabOrder": 0
+    "x": 28,
+    "y": 12,
+    "width": 850,
+    "height": 24,
+    "z": 1000,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "textbox",
@@ -17,17 +17,18 @@
           "properties": {
             "paragraphs": [
               {
-                "horizontalTextAlignment": "left",
                 "textRuns": [
                   {
-                    "value": "Which loans reached month 12?",
+                    "value": "CREDIT PORTFOLIO  /  U.S. MORTGAGES",
                     "textStyle": {
                       "fontFamily": "Segoe UI Semibold",
-                      "fontSize": "34px",
-                      "color": "#142A40"
+                      "fontSize": "13px",
+                      "color": "#B7F3E4",
+                      "fontWeight": "bold"
                     }
                   }
-                ]
+                ],
+                "horizontalTextAlignment": "left"
               }
             ]
           }
@@ -35,6 +36,68 @@
       ]
     },
     "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F3F6FA'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#DCE5EF'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
       "padding": [
         {
           "properties": {
@@ -69,7 +132,7 @@
           }
         }
       ],
-      "background": [
+      "visualHeader": [
         {
           "properties": {
             "show": {
