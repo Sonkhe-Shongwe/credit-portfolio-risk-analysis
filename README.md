@@ -2,10 +2,11 @@
 
 A MySQL and Power BI case study on the early credit performance of US mortgages. It compares the 2022 and 2023 Freddie Mac origination cohorts in their 12th scheduled payment month. The analysis tracks the share of loans 90 or more days in arrears, the share of outstanding principal on those loans, and how many loans paid off or otherwise exited before the comparison.
 
-**Status:** Both sample archives passed the MySQL audit and produced the first month-12 comparison. The next milestone is to build and reconcile the Power BI input.
+**Status:** Both sample archives passed the MySQL audit. The local Power BI input has been exported and reconciled to SQL. The report still needs to be built and verified in Power BI Desktop.
 
 - [Research plan](docs/RESEARCH_PLAN.md) for the business question, sources, definitions and milestone acceptance checks.
 - [Project continuation](docs/CONTINUATION.md) for the latest verified checkpoint, open decisions and exact next task.
+- [Power BI setup](docs/POWER_BI.md) for the export, field types and report measures.
 
 ## Run the first audit
 
