@@ -1,8 +1,11 @@
 # Credit Portfolio Performance & Risk Analysis
 
-A MySQL case study on the early credit performance of US mortgages. The first milestone asks which origination cohorts had more loans at least 90 days in arrears in their 12th scheduled payment month, and what share of outstanding principal those loans represented.
+A MySQL and Power BI case study on the early credit performance of US mortgages. It compares the 2022 and 2023 Freddie Mac origination cohorts in their 12th scheduled payment month. The analysis tracks the share of loans 90 or more days in arrears, the share of outstanding principal on those loans, and how many loans paid off or otherwise exited before the comparison.
 
-**Status:** The 2022 and 2023 sample archives have been processed locally through the data audit and first calculation on MySQL 8.4. The next step is the Power BI report.
+**Status:** Both sample archives passed the MySQL audit and produced the first month-12 comparison. The next milestone is to build and reconcile the Power BI input.
+
+- [Research plan](docs/RESEARCH_PLAN.md) for the business question, sources, definitions and milestone acceptance checks.
+- [Project continuation](docs/CONTINUATION.md) for the latest verified checkpoint, open decisions and exact next task.
 
 ## Run the first audit
 
